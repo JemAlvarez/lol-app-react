@@ -1,0 +1,138 @@
+nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar--inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__container {
+    padding: $m-size 0;
+}
+
+.navbar__container--custom {
+    display: grid;
+    grid-template-columns: 3fr 0.3fr;
+    padding: $s-size 0;
+    width: 380px;
+}
+
+.navbar__link {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 $xs-size;
+    text-decoration: none;
+
+    &:hover {
+        color: rgba($blue, 0.5);
+    }
+}
+
+.navbar__link--custom {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar__link--active {
+    color: $blue;
+}
+
+.navbar__dropdown {
+    display: inline-block;
+    position: relative;
+    
+    svg {
+        transform: translateY(-50%);
+        position: absolute;
+        right: -10%;
+        top: 50%;
+    }
+}
+
+.navbar__dropdown--custom {
+    display: inline-block;
+    height: 80%;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navbar__dropdown-content {
+    background-color: $dark-background;
+    border-radius: 0.8rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    min-width: 160px;
+    position: absolute;
+    z-index: 1;
+
+    a {
+        float: none;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+.navbar__dropdown-content--custom {
+    display: none;
+
+    p {
+        margin: 0;
+        padding: 0.3rem;
+
+        &:hover {
+            color: rgba($blue, 0.5);
+            cursor: pointer;
+        }
+    }
+}
+
+.navbar__dropdown:hover .navbar__dropdown-content {
+    display: block;
+}
+
+.navbar__dropdown:hover .navbar__dropdown-content--custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.navbar__form {
+    position: relative;
+
+}
+
+.navbar__form__input {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: $white;
+    font-size: 1.3rem;
+    height: 100%;
+    padding: 0 $s-size;
+    width: 100%;
+}
+
+.navbar__form__submit {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.4rem;
+    height: 80%;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+        color: rgba($blue, 0.5);
+        cursor: pointer;
+    }
+}
+
+.navbar__menu {
+    margin-left: $xs-size;
+}

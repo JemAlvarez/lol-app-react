@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $background;
+    color: $white;
+    font-size: $m-size;
+    line-height: 1.6;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
