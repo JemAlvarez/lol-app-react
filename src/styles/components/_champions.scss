@@ -1,0 +1,31 @@
+.champions__container {
+    background: $dark-background;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: $l-size 0;
+    padding: $m-size;
+
+    h3, h4 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: $white;
+        margin: 0 0 $m-size $m-size;
+        padding: $s-size;
+    }
+    
+    h4 {
+        color: rgba($white, 0.5);
+        padding: $s-size $s-size $s-size $xl-size;
+    }
+
+    div {
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        justify-items: center;
+    }
+}
+
+.champions__loading {
+    color: rgba($white, 0.5);
+    grid-column: 1/7;
+    text-align: center;
+}

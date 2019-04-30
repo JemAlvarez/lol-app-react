@@ -1,0 +1,24 @@
+.championIcon {
+    display: grid;
+    height: 120px;
+    justify-items: center;
+    text-decoration: none;
+    width: 120px;
+
+    &:hover {
+        .championIcon__name {
+            color: rgba($blue, 0.5);
+        }
+    }
+}
+
+.championIcon__img {
+    height: auto;
+    width: 70%;
+}
+
+.championIcon__name {
+    color: $white;
+    margin: 0;
+    padding: 0;
+}
