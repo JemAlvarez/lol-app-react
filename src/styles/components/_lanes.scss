@@ -1,0 +1,32 @@
+.random-lanes__container {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin-top: 15rem;
+}
+
+.random-lanes__lane {
+    align-items: center;
+    background: $dark-background;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-rows: 0.5fr 2fr;
+    height: 200px;
+    justify-items: center;
+    padding: $m-size;
+    width: 200px;
+
+    h3 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0;
+        padding: $xs-size;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    .loading {
+        grid-row: 1/ span 2;
+    }
+}

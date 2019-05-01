@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 
 import ChampionIcon from './ChampionIcon'
+import Loading from './Loading'
 
 import RegionContext from '../context/region-context'
 
@@ -35,7 +36,7 @@ const Champions = () => {
                                 <ChampionIcon key={champion.champId} champ={champion} />
                             ))
                         ) : (
-                                <p className="champions__loading">Loading ...</p>
+                                <Loading />
                             )
                     }
                 </div>
@@ -47,7 +48,7 @@ const Champions = () => {
                                 <ChampionIcon key={champion.champId} champ={champion} />
                             ))
                         ) : (
-                                <p className="champions__loading">Loading ...</p>
+                                <Loading />
                             )
                     }
                 </div>
@@ -56,9 +57,13 @@ const Champions = () => {
                 <h3>All Champions</h3>
                 <div>
                     {
-                        champions.map(champion => (
-                            <ChampionIcon key={champion.champId} champ={champion} />
-                        ))
+                        champions.length > 1 ? (
+                            champions.map(champion => (
+                                <ChampionIcon key={champion.champId} champ={champion} />
+                            ))
+                        ) : (
+                                <Loading />
+                            )
                     }
                 </div>
             </div>

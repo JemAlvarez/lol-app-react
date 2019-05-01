@@ -1,0 +1,61 @@
+.random-champion {
+    display: grid;
+}
+
+.random-champion__container {
+    display: grid;
+    height: 413px;
+    justify-self: center;
+    padding: $xl-size;
+    position: relative;
+    width: 700px;
+    z-index: 2;
+
+    & > img {
+        height: 60px;
+        position: absolute;
+        right: 3%;
+        top: 5%;
+        width: 60px;
+    }
+
+    h2 {
+        text-transform: uppercase;
+
+        span {
+            text-transform: lowercase;
+            font-size: 1.7rem;
+            opacity: 0.5;
+        }
+    }
+
+    p {
+        font-weight: 700;
+    }
+
+    .loading {
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.random-champion__background-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 40%;
+    box-shadow: inset 0 0 40px 50px $background;
+    filter: blur(3px);
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.random-champion__roles {
+    align-items: center;
+    display: grid;
+    justify-items: center;
+}
