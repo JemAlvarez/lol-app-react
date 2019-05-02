@@ -23,6 +23,7 @@ const Navbar = () => {
                         <div className="navbar__dropdown-content">
                             <NavLink to="/random-lane" className="navbar__link" activeClassName="navbar__link--active">Lane</NavLink>
                             <NavLink to="/random-champion" className="navbar__link" activeClassName="navbar__link--active">Champion</NavLink>
+                            <NavLink to="/random-skin" className="navbar__link" activeClassName="navbar__link--active">Skin</NavLink>
                         </div>
                     </div>
                 </div>

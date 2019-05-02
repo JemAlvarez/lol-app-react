@@ -7,6 +7,7 @@ import Champions from '../components/Champions'
 import Champion from '../components/Champion'
 import RandomLane from '../components/RandomLane'
 import RandomChampion from '../components/RandomChampion'
+import RandomSkin from '../components/RandomSkin'
 
 import RegionContext from '../context/region-context'
 
@@ -29,6 +30,7 @@ const AppRouter = () => {
                 <Route path="/champion/:id" component={Champion} />
                 <Route path="/random-lane" component={RandomLane} />
                 <Route path="/random-champion" component={RandomChampion} />
+                <Route path="/random-skin" component={RandomSkin} />
             </RegionContext.Provider>
         </Router>
     )
