@@ -9,7 +9,6 @@
     padding: $xl-size;
     position: relative;
     width: 700px;
-    z-index: 2;
 
     & > img {
         height: 60px;
@@ -17,6 +16,7 @@
         right: 3%;
         top: 5%;
         width: 60px;
+        z-index: -99;
     }
 
     h2 {
