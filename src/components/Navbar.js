@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FaSearch, FaCaretDown, FaCog } from "react-icons/fa"
 
 import RegionContext from '../context/region-context'
@@ -7,56 +7,23 @@ import RegionContext from '../context/region-context'
 const Navbar = () => {
     const { region, setRegion, summonerName, setSummonerName, url, setSummoner, history } = useContext(RegionContext)
 
+    const onSummonerInput = (e) => {
+        setSummonerName(e.target.value)
+    }
+
     const changeRegion = (reg) => {
         setRegion(reg)
         localStorage.setItem('region', reg)
     }
 
-    const regionTransform = (region) => {
-        switch (region) {
-            case 'BR':
-                return 'br1'
-            case 'EUNE':
-                return 'eun1'
-            case 'EUW':
-                return 'euw1'
-            case 'JP':
-                return 'jp1'
-            case 'KR':
-                return 'kr'
-            case 'LAN':
-                return 'la1'
-            case 'LAS':
-                return 'la2'
-            case 'NA':
-                return 'na1'
-            case 'OCE':
-                return 'oc1'
-            case 'TR':
-                return 'tr1'
-            case 'RU':
-                return 'ru1'
-            case 'PBE':
-                return 'pbe1'
-        }
-    }
-
-    const onSummonerInput = (e) => {
-        setSummonerName(e.target.value)
-    }
-
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault()
         if (window.location.pathname !== '/summoner') {
             history.push('/summoner')
+        } else {
+            window.location.reload()
         }
-        const reg = regionTransform(region)
-        const summoner = summonerName
-        setSummonerName('')
-        const summonerRes = await fetch(`${url}/summoner/${reg}/${summoner}`)
-        const summonerData = await summonerRes.json()
-        setSummoner(summonerData)
-        localStorage.setItem('summonerName', summonerData.name)
+        localStorage.setItem('summonerName', document.querySelector('#summoner-name').value)
     }
 
     return (
@@ -77,6 +44,7 @@ const Navbar = () => {
                 <div className="navbar__container navbar__container--custom">
                     <form className="navbar__form" onSubmit={(e) => { onSubmit(e) }}>
                         <input
+                            id="summoner-name"
                             type="text"
                             className="navbar__form__input"
                             placeholder="Search summoner..."
