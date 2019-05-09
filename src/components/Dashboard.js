@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import Loading from './Loading'
 
 import RegionContext from '../context/region-context'
 
@@ -75,35 +76,36 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div>
+        <div className="container-small dashboard">
             {
                 localStorage.getItem('summonerName') ? (
-                    <div>
+                    <>
                         {
                             !error ? (
-                                <div>
+                                <>
                                     {
                                         loading ? (
-                                            <p> Loading</p>
+                                            <Loading />
                                         ) : (
-                                                <div>
-                                                    <div>
-                                                        <div>
-                                                            <img src={summoner.icon} />
-                                                            <img src={summoner.border} />
-                                                            <p>{summoner.level}</p>
+                                                <>
+                                                    <div className="dashboard__top">
+                                                        <div className="dashboard__top-summoner">
+                                                            <div className="dashboard__top-summoner-icon">
+                                                                <img className="icon" src={summoner.icon} />
+                                                                <img className="icon-border" src={summoner.border} />
+                                                                <p>{summoner.level}</p>
+                                                            </div>
+                                                            <h2>{summoner.name}</h2>
                                                         </div>
-                                                        <div>
-                                                            <p>{summoner.name}</p>
-                                                            <p>Solo 5v5</p>
-                                                            <p>{summoner.ranked.tier}</p>
-                                                            <p>{summoner.ranked.rank}</p>
-                                                            <p>{summoner.ranked.leaguePoints}</p>
-                                                            <p>{summoner.ranked.wins}</p>
-                                                            <p>{summoner.ranked.losses}</p>
-                                                            <p>{summoner.ranked.hotStreak}</p>
-                                                            <p>{summoner.ranked.winPercentage}</p>
+                                                        <div className="dashboard__top-rank">
                                                             <img src={summoner.ranked.rankImg} />
+                                                            <div>
+                                                                <span>Solo 5v5</span>
+                                                                <h4>{summoner.ranked.tier} {summoner.ranked.rank}</h4>
+                                                                <p>{summoner.ranked.leaguePoints} LP</p>
+                                                                <p>{summoner.ranked.wins} W/ {summoner.ranked.losses} L ({summoner.ranked.winPercent}%)</p>
+                                                                <strong>Hot Steak: <span>{`${summoner.ranked.hotStreak}`}</span></strong>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -115,15 +117,15 @@ const Dashboard = () => {
                                                             {summoner.matchHistory.map(match => (<p key={match.gameId}>{match.gameId} -- {match.champion} -- {match.timestamp}</p>))}
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </>
                                             )
                                     }
-                                </div>
+                                </>
                             ) : (
                                     <p>Summoner not found</p>
                                 )
                         }
-                    </div>
+                    </>
                 ) : (
                         <p>Search for summoner</p>
                     )
