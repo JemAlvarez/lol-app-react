@@ -11,6 +11,7 @@
 .dashboard__top {
     display: flex;
     justify-content: space-between;
+    height: 195px;
     margin-top: $xl-size;
 }
 
@@ -92,5 +93,43 @@
         align-self: center;
         height: 120px;
         width: 120px;
+    }
+}
+
+.dashboard__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $xl-size;
+}
+
+.mastery {
+    background: $dark-background;
+    height: 537px;
+    padding: $m-size;
+
+    .mastery__champion {
+        display: flex;
+        justify-content: space-between;
+        margin: $s-size 0;
+
+        img {
+            height: 70px;
+            margin-right: $xs-size;
+            width: 70px;
+        }
+    }
+
+    span {
+        color: $blue;
+    }
+
+    p {
+        color: rgba(white, 0.5);
+        margin: 0;
+    }
+
+    h4 {
+        border-bottom: 1px solid rgba(white, 0.1);
+        margin-top: 0;
     }
 }

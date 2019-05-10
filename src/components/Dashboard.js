@@ -38,40 +38,28 @@ const Dashboard = () => {
         }
     }
 
+    const onLoad = async (name) => {
+        const reg = regionTransform(localStorage.getItem('region'))
+        const summ = name
+        setSummonerName('')
+        const summonerRes = await fetch(`${url}/summoner/${reg}/${summ}`)
+        if (summonerRes.status === 400) {
+            setError(true)
+            setLoading(false)
+            return
+        }
+        const summonerData = await summonerRes.json()
+        setSummoner(summonerData)
+        setLoading(false)
+    }
+
     useEffect(() => {
         if (localStorage.getItem('summonerName')) {
-            const fetchSummonerFromLocal = async () => {
-                const reg = regionTransform(region)
-                const summ = localStorage.getItem('summonerName')
-                const summonerRes = await fetch(`${url}/summoner/${reg}/${summ}`)
-                if (summonerRes.status === 400) {
-                    setError(true)
-                    setLoading(false)
-                    return
-                }
-                const summonerData = await summonerRes.json()
-                setSummoner(summonerData)
-                setLoading(false)
-            }
-            fetchSummonerFromLocal()
+            onLoad(localStorage.getItem('summonerName'))
         } else if (!summonerName) {
             return
         } else {
-            const fetchSummoner = async () => {
-                const reg = regionTransform(region)
-                const summ = summonerName
-                setSummonerName('')
-                const summonerRes = await fetch(`${url}/summoner/${reg}/${summ}`)
-                if (summonerRes.status === 400) {
-                    setError(true)
-                    setLoading(false)
-                    return
-                }
-                const summonerData = await summonerRes.json()
-                setSummoner(summonerData)
-                setLoading(false)
-            }
-            fetchSummoner()
+            onLoad(summonerName)
         }
     }, [])
 
@@ -108,10 +96,20 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <div>
-                                                            <p>{summoner.totalMasteryScore}</p>
-                                                            {summoner.championMastery.map(champ => (<p key={champ.championId}>{champ.championId} -- {champ.championLevel} -- {champ.championPoints}</p>))}
+                                                    <div className="dashboard__bottom">
+                                                        <div className="mastery">
+                                                            <h4>Mastery</h4>
+                                                            <p>Total Mastery Score: <span>{summoner.totalMasteryScore}</span></p>
+                                                            {summoner.championMastery.map(champ => (
+                                                                <div key={champ.champId} className="mastery__champion">
+                                                                    <img src={champ.icon} />
+                                                                    <div>
+                                                                        <p>{champ.name}</p>
+                                                                        <p>Level: <span>{champ.championLevel}</span> - Points: <span>{champ.championPoints.toLocaleString('en')}</span></p>
+                                                                        <p>Last played: <span>{champ.lastPlayTime}</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
                                                         </div>
                                                         <div>
                                                             {summoner.matchHistory.map(match => (<p key={match.gameId}>{match.gameId} -- {match.champion} -- {match.timestamp}</p>))}
