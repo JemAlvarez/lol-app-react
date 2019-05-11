@@ -94,6 +94,15 @@
         height: 120px;
         width: 120px;
     }
+
+    .unranked {
+        display: grid;
+        height: 70%;
+
+        h4 {
+            align-self: center;
+        }
+    }
 }
 
 .dashboard__bottom {
