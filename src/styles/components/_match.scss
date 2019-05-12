@@ -1,0 +1,110 @@
+.match {
+    background: $dark-background;
+    display: grid;
+    grid-template-columns: 3fr 0.3fr;
+    height: 116px;
+    margin-bottom: $m-size;
+    width: 600px;
+}
+
+.match__left--top {
+    border-bottom: 2px solid $background;
+    display: grid;
+    grid-template-columns: 0.3fr 3fr;
+    padding: $xs-size;
+
+    * {
+        margin: 0;
+    }
+}
+
+.top__win {
+    align-self: center;
+    font-size: 1rem;
+}
+
+.top__info {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
+    & > img {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.top__spells {
+    display: grid;
+    grid-gap: 3px;
+
+    img {
+        height: 23px;
+        width: 23px;
+    }
+}
+
+.top__kda {
+    color: rgba(white, 0.5);
+    font-weight: lighter;
+    text-align: center;
+
+    span {
+        color: white;
+        font-weight: 700;
+    }
+}
+
+.top__cs {
+    color: rgba(white, 0.5);
+    span {
+        color: white;
+        font-weight: 700;
+    }
+}
+
+.match__left--bot {
+    display: grid;
+    color: rgba(white, 0.5);
+    grid-template-columns: repeat(3, 1fr);
+    padding: $xs-size;
+    font-size: 1.15rem;
+
+    span {
+        color: $accent;
+        text-transform: uppercase;
+    }
+
+    * {
+        margin: 0;
+    }
+}
+
+.match__right {
+    border-left: 2px solid $background;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: $xs-size;
+}
+
+.match__player {
+    align-items: center;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 0.3fr 3fr;
+    height: 20px;
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+
+    p {
+        font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 53px;
+    }
+}

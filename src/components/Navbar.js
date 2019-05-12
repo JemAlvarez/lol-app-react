@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaSearch, FaCaretDown, FaCog } from "react-icons/fa"
 
@@ -7,13 +7,27 @@ import RegionContext from '../context/region-context'
 const Navbar = () => {
     const { region, setRegion, summonerName, setSummonerName, url, setSummoner, history } = useContext(RegionContext)
 
+    useEffect(() => {
+        let element = ''
+        document.querySelectorAll('.navbar__dropdown-region').forEach(el => {
+            if (el.textContent === localStorage.getItem('region')) {
+                element = el
+            }
+        })
+        element.style.color = '#f35353'
+    }, [])
+
     const onSummonerInput = (e) => {
         setSummonerName(e.target.value)
     }
 
-    const changeRegion = (reg) => {
+    const changeRegion = (e, reg) => {
         setRegion(reg)
         localStorage.setItem('region', reg)
+        document.querySelectorAll('.navbar__dropdown-region').forEach(el => {
+            el.style = ''
+        })
+        e.target.style.color = '#f35353'
     }
 
     const onSubmit = (e) => {
@@ -54,18 +68,18 @@ const Navbar = () => {
                         <div className="navbar__dropdown navbar__dropdown--custom">
                             <button className="navbar__link navbar__link--custom">{region}</button>
                             <div className="navbar__dropdown-content navbar__dropdown-content--custom">
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('BR') }}>BR</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('EUNE') }}>EUNE</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('EUW') }}>EUW</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('JP') }}>JP</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('KR') }}>KR</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('LAN') }}>LAN</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('LAS') }}>LAS</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('NA') }}>NA</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('OCE') }}>OCE</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('TR') }}>TR</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('RU') }}>RU</p>
-                                <p className="navbar__dropdown-region" onClick={() => { changeRegion('PBE') }}>PBE</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'BR') }}>BR</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'EUNE') }}>EUNE</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'EUW') }}>EUW</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'JP') }}>JP</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'KR') }}>KR</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'LAN') }}>LAN</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'LAS') }}>LAS</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'NA') }}>NA</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'OCE') }}>OCE</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'TR') }}>TR</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'RU') }}>RU</p>
+                                <p className="navbar__dropdown-region" onClick={(e) => { changeRegion(e, 'PBE') }}>PBE</p>
                             </div>
                         </div>
                         <button className="navbar__form__submit"><FaSearch /></button>

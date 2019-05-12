@@ -118,13 +118,17 @@
 
     .mastery__champion {
         display: flex;
-        justify-content: space-between;
+        justify-content: grid;
         margin: $s-size 0;
 
         img {
             height: 70px;
             margin-right: $xs-size;
             width: 70px;
+        }
+
+        div {
+            justify-self: left;
         }
     }
 

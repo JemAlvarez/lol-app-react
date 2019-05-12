@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import moment from 'moment'
 import Loading from './Loading'
 import Match from './Match'
 
@@ -120,7 +121,7 @@ const Dashboard = () => {
                                                                     <div>
                                                                         <p>{champ.name}</p>
                                                                         <p>Level: <span>{champ.championLevel}</span> - Points: <span>{champ.championPoints.toLocaleString('en')}</span></p>
-                                                                        <p>Last played: <span>{champ.lastPlayTime}</span></p>
+                                                                        {/*<p>Last played: <span>{moment(champ.lastPlayTime).fromNow()}</span></p>*/}
                                                                     </div>
                                                                 </div>
                                                             ))}
