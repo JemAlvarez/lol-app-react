@@ -9,7 +9,6 @@ const Dashboard = () => {
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
-    const [matches, setMatches] = useState([])
 
     const regionTransform = (region) => {
         switch (region) {
@@ -42,7 +41,7 @@ const Dashboard = () => {
 
     const onLoad = async (name) => {
         const reg = regionTransform(localStorage.getItem('region'))
-        const summ = name
+        const summ = name.toLowerCase()
         setSummonerName('')
         const summonerRes = await fetch(`${url}/summoner/${reg}/${summ}`)
         if (summonerRes.status === 400) {

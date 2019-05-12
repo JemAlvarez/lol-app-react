@@ -25,13 +25,13 @@ const Match = ({ match }) => {
                 <div>
                     <p>{match.gameMode}</p>
                     <p>{match.duration}</p>
-                    <p>First Blood: {match.firstBlood}</p>
+                    <p>First Blood: {`${match.firstBlood}`}</p>
                 </div>
             </div>
             <div>
                 {
                     match.players.map(player => (
-                        <div>
+                        <div key={player.summoner}>
                             <img src={player.icon} />
                             <p>{player.summoner}</p>
                         </div>
