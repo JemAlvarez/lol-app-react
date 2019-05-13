@@ -1,0 +1,38 @@
+.champion {
+    background: $dark-background;
+    margin-top: $xl-size;
+    padding: $xl-size;
+    position: relative;
+
+    p {
+        color: rgba(white, 0.4);
+    }
+}
+
+.champion__icon {
+    height: 65px;
+    width: 65px;
+}
+
+.champion__info {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 0.3fr 3fr;
+    justify-items: center;
+
+    h1 {
+        justify-self: left;
+
+        span {
+            color: rgba(white, 0.5);
+            font-size: 2rem;
+        }
+    }
+}
+
+.champion__roles {
+    align-items: center;
+    color: $blue;
+    display: grid;
+    justify-items: center;
+}

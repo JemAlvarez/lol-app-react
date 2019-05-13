@@ -138,12 +138,12 @@ const Dashboard = () => {
                                     }
                                 </>
                             ) : (
-                                    <p>Summoner not found</p>
+                                    <p className="no-summoner">Summoner not found</p>
                                 )
                         }
                     </>
                 ) : (
-                        <p>Search for summoner</p>
+                        <p className="no-summoner">Search for summoner</p>
                     )
             }
         </div>
